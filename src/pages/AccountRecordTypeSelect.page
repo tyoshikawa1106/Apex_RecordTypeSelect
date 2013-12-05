@@ -1,0 +1,23 @@
+<apex:page standardController="Account" extensions="AccountEditController">
+    <apex:sectionHeader title="新規取引先" subTitle="取引先 レコードタイプを選択" />
+    <apex:form id="form">
+        <apex:outputText value="新規取引先のレコードタイプを選択します。 今後このページをスキップするには、個人設定ページで、レコードタイプの設定を変更してください。" />
+        <br/>
+        <br/>
+        <apex:pageBlock title="取引先 レコードタイプを選択">
+            <apex:pageMessages id="msg"/>
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="次へ" action="{!doNext}" />
+                <apex:commandButton value="キャンセル" action="{!URLFOR('/001/o')}"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection >
+                <apex:pageBlockSectionItem >
+                    <apex:outputText value="新規レコードのレコードタイプ" />
+                    <apex:selectRadio value="{!recordTypeId}">
+                        <apex:selectOptions value="{!recordTypeItems}"/>
+                    </apex:selectRadio>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

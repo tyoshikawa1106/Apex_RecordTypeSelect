@@ -1,0 +1,18 @@
+<apex:page standardController="Account" extensions="AccountEditController">
+    <apex:sectionHeader title="取引先" subTitle="{!account.Id}" />
+    <apex:form id="form">
+         <apex:pageBlock >
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="保存" action="{!doSave}" reRender="form"/>
+                <apex:commandButton value="キャンセル" action="{!URLFOR($Page.AccountRecordTypeSelect)}" immediate="true" />
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection >
+                <apex:inputField value="{!account.Name}"/>
+                <apex:outputField value="{!account.RecordTypeId}"/>
+                <apex:inputField value="{!account.AccountNumber}"/>
+                <apex:inputField value="{!account.Phone}"/>
+                <apex:inputField value="{!account.Fax}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
